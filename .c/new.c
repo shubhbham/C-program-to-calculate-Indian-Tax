@@ -2,40 +2,28 @@
 
 int main()
 {
-    float physics, chemistry, maths;
-    float total;
+    float tax = 0, income;
+    printf("enter  your income\n");
+    scanf("%f", &income);
 
-    printf("enter physics marks\n");
-    scanf("%f", &physics);
-
-    printf("Enter the marks of chemistry\n");
-    scanf("%f", &chemistry);
-
-    printf("enter maths marks\n");
-    scanf("%f", &maths);
-
-    total = (physics + chemistry + maths) / 3;
-
-    if ((total < 40) || physics < 33 || chemistry < 33 || maths < 33)
+    if (income >= 250000 && income <= 500000)
     {
-
-        printf("Your total percentage is %f and Your fail...,.\n", total);
-    }
-    if (total > 40 && total < 59)
-    {
-        printf("Your percentage is %f and Second class!!\n", total);
-    }
-    if (total > 59 && total < 85)
-    {
-        printf("Your percentage is %f and First class!!\n", total);
+        tax = tax + 0.05 * (income - 250000);
     }
 
-    if (total > 85 && total <=100)
+    if (income >= 500000 && income <= 1000000)
     {
-        printf("Your percentage is %f and  Distinction!!\n", total);
+        tax = tax + 0.20 * (income - 500000);
     }
 
-    printf("Thank You!!\n");
-
+    if (income >= 1000000)
+    {
+        tax = tax + 0.30 * (income - 1000000);
+    }
+    if (income < 250001)
+    {
+        printf("No need to pay any tax THANK YOU!!\n");
+    }
+    printf("Your net income tax to be paid is %f\n", tax);
     return 0;
 }
